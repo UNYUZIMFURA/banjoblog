@@ -16,7 +16,7 @@ const Sidebar = () => {
     { content: "Messages", icon: <MdOutlineMail size={22} /> },
   ];
   return (
-    <div className="flex flex-col justify-between py-8 px-4 w-[22rem] rounded-lg h-[85vh] top-0 bg-red-200">
+    <div className="hidden lg:flex lg:w-[25%] flex-col justify-between py-8 px-4 max-w-[22rem] rounded-lg h-[85vh] top-0 bg-red-200">
       <div className="flex flex-col gap-8">
         <h1 className="text-2xl font-bold">BANJO BLOG</h1>
         <div className="flex flex-col gap-5">
