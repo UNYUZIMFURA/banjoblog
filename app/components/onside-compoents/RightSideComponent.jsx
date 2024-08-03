@@ -4,7 +4,7 @@ import Message from "../messages/Message";
 
 const RightSideComponent = () => {
   return (
-    <div className="bg-red-300 fixed top-10 hidden md:flex flex-col w-[20rem] lg:w-[22rem] rounded-lg py-8 px-4 gap-8">
+    <div className="fixed top-10 hidden md:flex flex-col w-[20rem] lg:w-[22rem] rounded-lg py-8 px-4 gap-8">
       <div className="w-full flex items-center justify-between">
         <h2>Messages</h2>
         <MdOutlineMail size={22} />
