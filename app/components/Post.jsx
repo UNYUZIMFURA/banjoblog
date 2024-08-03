@@ -4,19 +4,19 @@ import SaveSvg from "../utils/SVGs";
 
 const Post = () => {
   return (
-    <div className="w-full min-[550px]:p-5 max-w-[620px] flex flex-col rounded-md bg-white p-2">
+    <div className="w-full mt-8 mx-auto min-[550px]:p-5 max-w-[615px] flex flex-col rounded-md bg-white p-2">
       <div className="py-4 flex justify-between items-center">
-        <div className="flex  gap-4">
-          <div className="h-[3rem] w-[3rem] bg-slate-200 rounded-full"></div>
-          <div className="flex flex-col">
+        <div className="flex gap-4">
+          <div className="h-[3rem] w-[3rem] bg-slate-200 rounded-full cursor-pointer"></div>
+          <div className="flex flex-col justify-center gap-[2px]">
             <h2>Mary Krismas</h2>
-            <span>Tue at 12:00 PM</span>
+            <span className="text-sm">Tue at 12:00 PM</span>
           </div>
         </div>
-        <RxDotsVertical size={20} />
+        <RxDotsVertical size={20} className="cursor-pointer" />
       </div>
       <div className="h-[25rem] bg-black"></div>
-      <div className="py-6 flex flex-col gap-5 px-2">
+      <div className="py-6 flex flex-col gap-5 px-3">
         <div className="flex justify-between items-center">
           <div className="flex gap-3 items-center">
             <FiHeart size={24} />

@@ -4,10 +4,12 @@ import Sidebar from "./components/Sidebar";
 
 export default function Home() {
   return (
-    <main className="flex items-center justify-center h-screen md:p-4 md:gap-4 max-w-[100rem] xl:gap- 2xl:gap-8 mx-auto">
+    <main className="flex items-center bg-slate-200 overflow-scroll justify-start min-h-screen md:p-4 max-w-[92rem] mx-auto">
       <Sidebar />
-      <ContentHolder />
-      <RightSideComponent />
+      <div className="flex w-full h-full justify-end">
+        <ContentHolder />
+        <RightSideComponent />
+      </div>
     </main>
   );
 }

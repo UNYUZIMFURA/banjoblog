@@ -16,29 +16,29 @@ const Sidebar = () => {
     { content: "Messages", icon: <MdOutlineMail size={22} /> },
   ];
   return (
-    <div className="hidden lg:flex lg:w-[25%] flex-col justify-between py-8 px-4 max-w-[22rem] rounded-lg h-[85vh] top-0 bg-red-200">
+    <div className="fixed hidden xl:flex flex-col justify-between py-8 px-4 w-[22rem] rounded-lg h-[50rem] top-16 bg-white">
       <div className="flex flex-col gap-8">
-        <h1 className="text-2xl font-bold">BANJO BLOG</h1>
+        <h1 className="text-2xl font-bold ml-4">BANJO BLOG</h1>
         <div className="flex flex-col gap-5">
           {links.map((link, index) => (
             <div
               key={index}
-              className="cursor-pointer flex items-center gap-4 p-4 bg-green-200 rounded-md"
+              className="cursor-pointer flex items-center gap-5 p-4 rounded-md"
             >
               {link.icon}
-              <span>{link.content}</span>
+              <span className="font-semibold">{link.content}</span>
             </div>
           ))}
         </div>
       </div>
       <div className="flex flex-col gap-5">
-        <div className="flex items-center cursor-pointer gap-4 p-4 bg-green-200 rounded-md">
+        <div className="flex items-center cursor-pointer gap-5 p-4 rounded-md">
           <LuSettings size={22} />
-          <span>Settings</span>
+          <span className="font-semibold">Settings</span>
         </div>
-        <div className="flex items-center cursor-pointer gap-4 p-4 bg-green-200 rounded-md">
+        <div className="flex items-center cursor-pointer gap-5 p-4 rounded-md">
           <MdLogout size={22} />
-          <span>Log out</span>
+          <span className="font-semibold">Log out</span>
         </div>
       </div>
     </div>
