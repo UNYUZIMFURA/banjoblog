@@ -1,10 +1,10 @@
 import { MdOutlineMail } from "react-icons/md";
 import { IoSearchOutline } from "react-icons/io5";
-import Message from "./messages/Message";
+import Message from "../messages/Message";
 
 const RightSideComponent = () => {
   return (
-    <div className="fixed top-16 hidden md:flex flex-col w-[20rem] min-[1200px]:w-[22rem] bg-slate-500 rounded-lg py-8 px-4 gap-8">
+    <div className="bg-red-300 fixed top-10 hidden md:flex flex-col w-[20rem] lg:w-[22rem] rounded-lg py-8 px-4 gap-8">
       <div className="w-full flex items-center justify-between">
         <h2>Messages</h2>
         <MdOutlineMail size={22} />
@@ -24,7 +24,7 @@ const RightSideComponent = () => {
         <Message />
         <Message />
       </div>
-      <div className="flex flex-col gap-4 rounded-md bg-white p-3">
+      <div className="flex flex-col gap-5 rounded-md bg-white px-3 py-4">
         <div className="flex justify-between">
           <span>Sponsored</span>
           <span>Create Ad</span>
