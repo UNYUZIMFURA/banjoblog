@@ -1,35 +1,44 @@
-import { MdOutlineMail } from "react-icons/md";
 import { IoSearchOutline } from "react-icons/io5";
-import Message from "../messages/Message";
+import { IoIosStats } from "react-icons/io";
+import Trending from "../trending/Trending";
+import Image from "next/image";
 
 const RightSideComponent = () => {
   return (
-    <div className="fixed top-10 hidden md:flex flex-col w-[20rem] lg:w-[22rem] rounded-lg py-8 px-4 gap-8">
+    <div className="bg-white fixed top-10 hidden md:flex flex-col w-[20rem] lg:w-[22rem] rounded-lg py-8 px-4 gap-8">
       <div className="w-full flex items-center justify-between">
-        <h2>Messages</h2>
-        <MdOutlineMail size={22} />
+        <h2 className="font-semibold text-[#357dcf]">Trending Blogs</h2>
+        <IoIosStats size={22} color="#357dcf" />
       </div>
-      <form className="flex items-center gap-4 rounded-full overflow-hidden pl-4 mt-3">
+      <form className="bg-[#edeff3] flex items-center gap-4 rounded-full overflow-hidden pl-4 mt-3">
         <IoSearchOutline size={22} />
-        <input className="w-[90%] p-3 outline-none" />
+        <input
+          className="bg-[#edeff3] text-black w-[90%] p-3 outline-none"
+          placeholder="Search Blogs"
+        />
       </form>
-      <div className="flex justify-between">
-        <span>Primary</span>
-        <span>General</span>
-        <span>Requests(7)</span>
+      <div className="flex justify-between px-5">
+        <span>Technology</span>
+        <span>Music</span>
+        <span>Trading</span>
       </div>
-      <div className="flex flex-col gap-5">
-        <Message />
-        <Message />
-        <Message />
-        <Message />
+      <div className="flex flex-col gap-5 p-4 rounded-md">
+        <Trending />
+        <Trending />
+        <Trending />
+        <Trending />
       </div>
-      <div className="flex flex-col gap-5 rounded-md bg-white px-3 py-4">
-        <div className="flex justify-between">
-          <span>Sponsored</span>
-          <span>Create Ad</span>
+      <div className="flex flex-col gap-5 rounded-md px-3 py-4">
+        <div className="flex text-[#357dcf] justify-between">
+          <span className="cursor-pointer font-semibold">Sponsored</span>
+          <span className="cursor-pointer font-semibold">Create Ad</span>
         </div>
-        <div className="bg-black h-[15rem] w-full rounded-md"></div>
+        <div className="h-[15rem] w-full rounded-md cursor-pointer relative overflow-hidden">
+          <Image src={"/images/random_2.jpg"} fill className="object-cover" />
+        </div>
+        <span className="">
+          Technology in all sectors
+        </span>
       </div>
     </div>
   );
