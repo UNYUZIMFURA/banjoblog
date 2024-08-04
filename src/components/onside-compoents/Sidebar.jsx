@@ -1,3 +1,8 @@
+"use client"
+import Cookies from "js-cookie";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 import { GoHomeFill } from "react-icons/go";
 import { LuCompass } from "react-icons/lu";
 import { VscBell } from "react-icons/vsc";
@@ -6,6 +11,7 @@ import { LuSettings } from "react-icons/lu";
 import { MdLogout } from "react-icons/md";
 
 const Sidebar = () => {
+  const router = useRouter()
   const links = [
     {
       content: "Home",
@@ -15,6 +21,13 @@ const Sidebar = () => {
     { content: "Notifications", icon: <VscBell size={22} /> },
     { content: "Messages", icon: <MdOutlineMail size={22} /> },
   ];
+
+  const logOut = () => {
+    Cookies.remove("loggedIn")
+    router.push("/login")
+    return toast.success("Logging out...")
+  }
+
   return (
     <div className="fixed hidden xl:flex flex-col justify-between py-8 px-4 w-[20rem] lg:w-[22rem] rounded-lg h-[50rem] top-10 bg-white">
       <div className="flex flex-col gap-8">
@@ -36,7 +49,7 @@ const Sidebar = () => {
           <LuSettings size={22} />
           <span className="font-semibold">Settings</span>
         </div>
-        <div className="hover:bg-primary transition hover:text-white flex items-center cursor-pointer gap-5 p-4 rounded-md">
+        <div onClick={logOut} className="hover:bg-primary transition hover:text-white flex items-center cursor-pointer gap-5 p-4 rounded-md">
           <MdLogout size={22} />
           <span className="font-semibold">Log out</span>
         </div>
