@@ -1,6 +1,6 @@
-import ContentHolder from "./components/content/ContentHolder";
-import RightSideComponent from "./components/onside-compoents/RightSideComponent";
-import Sidebar from "./components/onside-compoents/Sidebar";
+import ContentHolder from "../components/content/ContentHolder";
+import RightSideComponent from "../components/onside-compoents/RightSideComponent";
+import Sidebar from "../components/onside-compoents/Sidebar";
 
 export default function Home() {
   return (
