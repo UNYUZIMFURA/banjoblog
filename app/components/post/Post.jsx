@@ -7,17 +7,15 @@ import { FiHeart } from "react-icons/fi";
 import { formatDistanceToNow } from "date-fns";
 
 const Post = (props) => {
-  const [saved, setSaved] = useState(false)
+  const [saved, setSaved] = useState(false);
   const [liked, setLiked] = useState(false);
   const [imageError, setImageError] = useState(false);
-  const [imageErrorProfile, setImageErrorProfile] = useState(false); 
-
+  const [imageErrorProfile, setImageErrorProfile] = useState(false);
   const formattedTime = formatDistanceToNow(new Date(props.post.updatedAt), {
     addSuffix: true,
   });
-  const defaultImage = "/images/random.jpg"; 
-  const defaultProfileImage = "/images/random.jpg"; 
-
+  const defaultImage = "/images/random.jpg";
+  const defaultProfileImage = "/images/random.jpg";
   return (
     <div className="w-full mt-8 mx-auto md:mx-0 min-[550px]:p-5 flex flex-col rounded-md bg-white p-2">
       <div className="py-4 flex justify-between items-center">
@@ -36,7 +34,7 @@ const Post = (props) => {
             />
           </div>
           <div className="flex flex-col justify-center gap-[2px]">
-            <h2>{props.post.user.username}</h2>
+            <h2 className="text-primary font-bold">{props.post.user.username}</h2>
             <span className="text-sm">{formattedTime}</span>
           </div>
         </div>
@@ -92,24 +90,28 @@ const Post = (props) => {
           </div>
         </div>
         <span>
-          <span className="font-bold text-[#357dcf]">{props.post.title} </span>
+          <span className="font-bold text-primary">{props.post.title} </span>
           <span>{props.post.content}</span>
         </span>
         <div className="flex flex-col">
-          <span className="font-bold">All Comments</span>
-          {props.post.comments.map((el, index) => (
-            <div key={index} className="flex gap-[3px]">
-              <span className="font-bold">{el.user.username}</span>
-              <span>{el.content}</span>
-            </div>
-          ))}
+          <span className="font-bold cursor-pointer">All Comments</span>
+          {props.post.comments.length > 0 ? (
+            props.post.comments.map((el, index) => (
+              <div key={index} className="flex gap-[3px]">
+                <span className="font-bold">{el.user.username}</span>
+                <span>{el.content}</span>
+              </div>
+            ))
+          ) : (
+            <div className="text-gray-500">Be the first to comment!</div>
+          )}
         </div>
         <form className="flex gap-4">
           <input
             className="w-4/5 p-[13px] indent-4 rounded-full outline-none bg-[#edeff3]"
             placeholder="Add a comment"
           />
-          <button className="p-[13px] text-white text-sm font-semibold rounded-full bg-[#357dcf]">
+          <button className="p-[13px] text-white text-sm font-semibold rounded-full bg-primary">
             Comment
           </button>
         </form>

@@ -7,7 +7,7 @@ const RightSideComponent = () => {
   return (
     <div className="bg-white fixed top-10 hidden md:flex flex-col w-[20rem] lg:w-[22rem] rounded-lg py-8 px-4 gap-8">
       <div className="w-full flex items-center justify-between">
-        <h2 className="font-semibold text-[#357dcf]">Trending Blogs</h2>
+        <h2 className="font-semibold text-primary">Trending Blogs</h2>
         <IoIosStats size={22} color="#357dcf" />
       </div>
       <form className="bg-[#edeff3] flex items-center gap-4 rounded-full overflow-hidden pl-4 mt-3">
@@ -29,7 +29,7 @@ const RightSideComponent = () => {
         <Trending />
       </div>
       <div className="flex flex-col gap-5 rounded-md px-3 py-4">
-        <div className="flex text-[#357dcf] justify-between">
+        <div className="flex text-primary justify-between">
           <span className="cursor-pointer font-semibold">Sponsored</span>
           <span className="cursor-pointer font-semibold">Create Ad</span>
         </div>
