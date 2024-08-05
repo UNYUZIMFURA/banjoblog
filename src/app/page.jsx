@@ -1,5 +1,5 @@
+"use client"
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer, toast } from "react-toastify";
 import ContentHolder from "../components/content/ContentHolder";
 import RightSideComponent from "../components/onside-compoents/RightSideComponent";
 import Sidebar from "../components/onside-compoents/Sidebar";
@@ -12,7 +12,6 @@ export default function Home() {
         <ContentHolder />
         <RightSideComponent />
       </div>
-      <ToastContainer />
     </main>
   );
 }

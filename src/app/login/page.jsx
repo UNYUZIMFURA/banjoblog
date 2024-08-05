@@ -3,12 +3,14 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import Cookies from "js-cookie";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 
 const Login = () => {
   const router = useRouter();
+  const [token, setToken] = useState("")
   const [userData, setUserData] = useState({
     email: "",
     password: "",
@@ -35,16 +37,26 @@ const Login = () => {
 
       const data = await res.json();
       if (data.success) {
+        // Using callback to ensure state is updated before using it
+        setToken(data.token);
         toast.success(data.message);
-        return giveUserAccess();
+      } else {
+        return toast.error(data.message);
       }
-      return toast.error(data.message);
     } catch (error) {
-     return toast.error("Server Error, Try again later!");
+      return toast.error("Server Error, Try again later!");
     }
   };
 
+  useEffect(() => {
+    if (token) {
+      giveUserAccess();
+    }
+  }, [token]);
+
   const giveUserAccess = () => {
+    console.log("here", token);
+     Cookies.set("token", token)
      Cookies.set("loggedIn", true);
      router.push("/");
      return toast.success("Logging In")
@@ -63,11 +75,12 @@ const Login = () => {
   return (
     <div className="flex items-center justify-center w-screen h-screen p-2 bg-primary">
       <div className="py-[2rem] w-screen max-w-[500px] flex flex-col gap-8 items-center bg-[white] px-6 rounded-md">
-        <div className="flex flex-col items-center">
-          <img
+        <div className="flex flex-col items-center relative h-[100px] w-[130px]">
+          <Image
             src={"/images/blog.png"}
             className="h-[100px] w-[130px] cursor-pointer"
-            alt="Book Logo"
+            alt="Blog Logo"
+            fill
           />
           <h2 className="py-4 font-bold text-primary">Banjo Blog - Login</h2>
         </div>

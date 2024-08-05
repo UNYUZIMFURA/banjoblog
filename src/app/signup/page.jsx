@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const Signup = () => {
   const router = useRouter();
@@ -17,7 +18,6 @@ const Signup = () => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   const handleSubmit = async (e) => {
-    console.log(userData);
     e.preventDefault();
     if (!userData.username || !userData.email || !userData.password) {
       return toast.error("Fill all fields!");
@@ -37,7 +37,7 @@ const Signup = () => {
         body: JSON.stringify(userData),
       });
       const data = await res.json();
-      if (data.success) {
+      if (data.success) {     
         return giveUserAccess();
       }
     } catch (error) {
@@ -64,18 +64,18 @@ const Signup = () => {
   return (
     <div className="flex items-center justify-center w-screen h-screen p-2 bg-primary">
       <div className="py-14 w-screen max-w-[500px] flex flex-col items-center bg-[white] px-6 rounded-md">
-        <img
-          src={"/images/random_2.jpg"}
-          className="h-[100px] w-[130px] cursor-pointer"
-          alt="Blog"
-        />
-        <h2 className="py-4 font-bold text-primary">
-          Banjo Blog - New Account
-        </h2>
+        <div className="flex flex-col items-center relative h-[100px] w-[130px]">
+          <Image
+            src={"/images/blog.png"}
+            className="h-[100px] w-[130px] cursor-pointer"
+            alt="Blog Logo"
+            fill
+          />
+          <h2 className="py-4 font-bold text-primary">Banjo Blog - Login</h2>
+        </div>
         <form
           className="flex flex-col gap-8 py-4 w-full max-w-[400px]"
           onSubmit={handleSubmit}
-          method="POST"
         >
           <div className="flex flex-col gap-4">
             <input
@@ -101,9 +101,7 @@ const Signup = () => {
               className="h-[57px] indent-6 text-black outline-none border-[#A3AAB4] w-full border rounded-[5px]"
             />
           </div>
-          <button
-            className="h-[57px] mt-4 w-full text-[white] bg-primary rounded-md outline-none font-semibold"
-          >
+          <button className="h-[57px] mt-4 w-full text-[white] bg-primary rounded-md outline-none font-semibold">
             Register
           </button>
           <span className="text-center text-gray">
